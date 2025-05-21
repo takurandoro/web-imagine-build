@@ -6,21 +6,21 @@ const Hero = () => {
     <section className="bg-white pt-24">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
-          We invest in the world's potential
+          Elevate Your Social Media Presence
         </h1>
         <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48">
-          Here at Company we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.
+          Frenies Studio is a full-service social media management agency founded by Takura Ndor (GuruNdor), a marketing graduate with extensive e-commerce experience.
         </p>
         <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
           <Button size="lg" className="inline-flex justify-center items-center">
-            Get started
+            Our Services
           </Button>
           <Button size="lg" variant="outline" className="inline-flex justify-center items-center">
-            Learn more
+            Contact Us
           </Button>
         </div>
         <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
-          <span className="font-semibold text-gray-400 uppercase">FEATURED IN</span>
+          <span className="font-semibold text-gray-400 uppercase">CERTIFIED IN</span>
           <div className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
             <div className="mr-5 mb-5 lg:mb-0 hover:text-gray-800">
               <svg className="h-8" viewBox="0 0 132 29" fill="currentColor">

@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">Company</span>
+          <span className="self-center text-2xl font-semibold whitespace-nowrap">Frenies Studio</span>
         </a>
         <div className="flex md:order-2">
           <Button className="hidden md:flex">Get Started</Button>
@@ -40,10 +40,10 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#features"
+                href="#services"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
               >
-                Features
+                Services
               </a>
             </li>
             <li>

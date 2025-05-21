@@ -11,10 +11,11 @@ const ContactForm = () => {
     name: "",
     email: "",
     message: "",
+    service: "novus", // Default service selection
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -28,9 +29,9 @@ const ContactForm = () => {
     console.log("Form submitted:", formData);
     toast({
       title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
+      description: "Thank you for your interest in Frenies Studio. We'll get back to you shortly!",
     });
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", message: "", service: "novus" });
   };
 
   return (
@@ -40,8 +41,7 @@ const ContactForm = () => {
           Contact Us
         </h2>
         <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">
-          Got a technical issue? Want to send feedback about a beta feature? Need
-          details about our Business plan? Let us know.
+          Ready to elevate your social media presence? Let's discuss how Frenies Studio can help your business grow online.
         </p>
         <form onSubmit={handleSubmit} className="space-y-8">
           <div>
@@ -78,6 +78,27 @@ const ContactForm = () => {
               required
             />
           </div>
+          <div>
+            <label
+              htmlFor="service"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Service of Interest
+            </label>
+            <select
+              id="service"
+              name="service"
+              value={formData.service}
+              onChange={handleChange}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              required
+            >
+              <option value="novus">Novus - Social Media Management</option>
+              <option value="growth-labs">Growth Labs - Paid Ads</option>
+              <option value="koncept">Koncept - Content Creation</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
           <div className="sm:col-span-2">
             <label
               htmlFor="message"
@@ -91,7 +112,7 @@ const ContactForm = () => {
               rows={6}
               value={formData.message}
               onChange={handleChange}
-              placeholder="Leave a comment..."
+              placeholder="Tell us about your business and goals..."
               className="h-36"
               required
             />

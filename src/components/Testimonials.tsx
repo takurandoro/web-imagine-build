@@ -7,10 +7,10 @@ const Testimonials = () => {
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
-            Trusted by businesses worldwide
+            Our Success Stories
           </h2>
           <p className="mb-5 font-light text-gray-500 sm:text-xl">
-            Here's what our customers have to say about their experience with us.
+            Here's what our clients say about our social media management services.
           </p>
         </div>
         <div className="grid mb-8 lg:mb-12 lg:grid-cols-2 gap-8">
@@ -19,11 +19,11 @@ const Testimonials = () => {
               <div className="flex items-center mb-4">
                 <Avatar className="h-10 w-10 mr-4">
                   <AvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&auto=format&fit=crop" />
-                  <AvatarFallback>JD</AvatarFallback>
+                  <AvatarFallback>MB</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Jane Doe</h3>
-                  <p className="text-sm text-gray-500">CEO at Company</p>
+                  <h3 className="text-lg font-semibold text-gray-900">Martha Brown</h3>
+                  <p className="text-sm text-gray-500">Fashion Boutique Owner</p>
                 </div>
               </div>
               <div className="flex space-x-1">
@@ -35,7 +35,7 @@ const Testimonials = () => {
               </div>
             </div>
             <p className="text-gray-600 mt-4">
-              "We've been using Company for a few months now and it's transformed how we manage our business. The features are intuitive, and the customer support has been exceptional. Highly recommended!"
+              "Since partnering with Frenies Studio, our social media presence has grown tremendously. Their Novus service has maintained our brand voice perfectly, and our engagement has increased by 150%. Takura truly understands digital marketing!"
             </p>
           </div>
           <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
@@ -43,11 +43,11 @@ const Testimonials = () => {
               <div className="flex items-center mb-4">
                 <Avatar className="h-10 w-10 mr-4">
                   <AvatarImage src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&auto=format&fit=crop" />
-                  <AvatarFallback>JS</AvatarFallback>
+                  <AvatarFallback>RK</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">John Smith</h3>
-                  <p className="text-sm text-gray-500">Marketing Director</p>
+                  <h3 className="text-lg font-semibold text-gray-900">Robert Kiyosaki</h3>
+                  <p className="text-sm text-gray-500">E-commerce Store Owner</p>
                 </div>
               </div>
               <div className="flex space-x-1">
@@ -59,7 +59,7 @@ const Testimonials = () => {
               </div>
             </div>
             <p className="text-gray-600 mt-4">
-              "Company has helped us streamline our operations and save time on routine tasks. The analytics tools provide valuable insights that have directly contributed to our growth. Great platform!"
+              "The Growth Labs program has been a game-changer for my business. We signed up with just $100 and within two months, Frenies brought us 15 new clients. The ROI has been incredible, and I appreciate their performance-based model!"
             </p>
           </div>
         </div>
