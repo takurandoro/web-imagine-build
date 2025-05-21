@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { CalendarClock } from "lucide-react";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -11,7 +12,8 @@ const ContactForm = () => {
     name: "",
     email: "",
     message: "",
-    service: "novus", // Default service selection
+    service: "free-call", // Changed default to free-call
+    phoneNumber: "", // Added phone number field
   });
 
   const handleChange = (
@@ -29,9 +31,11 @@ const ContactForm = () => {
     console.log("Form submitted:", formData);
     toast({
       title: "Message sent!",
-      description: "Thank you for your interest in Frenies Studio. We'll get back to you shortly!",
+      description: formData.service === "free-call" 
+        ? "Thank you for booking a free strategy call. We'll contact you shortly to schedule a time!"
+        : "Thank you for your interest in Frenies Studio. We'll get back to you shortly!",
     });
-    setFormData({ name: "", email: "", message: "", service: "novus" });
+    setFormData({ name: "", email: "", message: "", service: "free-call", phoneNumber: "" });
   };
 
   return (
@@ -80,6 +84,23 @@ const ContactForm = () => {
           </div>
           <div>
             <label
+              htmlFor="phoneNumber"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Phone Number
+            </label>
+            <Input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              placeholder="+1 (123) 456-7890"
+              required
+            />
+          </div>
+          <div>
+            <label
               htmlFor="service"
               className="block mb-2 text-sm font-medium text-gray-900"
             >
@@ -93,6 +114,7 @@ const ContactForm = () => {
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               required
             >
+              <option value="free-call">Free Strategy Call</option>
               <option value="novus">Novus - Social Media Management</option>
               <option value="growth-labs">Growth Labs - Paid Ads</option>
               <option value="koncept">Koncept - Content Creation</option>
@@ -112,13 +134,20 @@ const ContactForm = () => {
               rows={6}
               value={formData.message}
               onChange={handleChange}
-              placeholder="Tell us about your business and goals..."
+              placeholder={formData.service === "free-call" ? "Let us know your availability for a call..." : "Tell us about your business and goals..."}
               className="h-36"
               required
             />
           </div>
-          <Button type="submit" className="px-5 py-3">
-            Send message
+          <Button type="submit" className="px-5 py-3 flex items-center gap-2">
+            {formData.service === "free-call" ? (
+              <>
+                <CalendarClock className="h-5 w-5" />
+                Book Free Strategy Call
+              </>
+            ) : (
+              "Send message"
+            )}
           </Button>
         </form>
       </div>

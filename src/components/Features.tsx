@@ -1,6 +1,6 @@
-
 import { Check } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const Features = () => {
   return (
@@ -14,6 +14,38 @@ const Features = () => {
             Founded by Takura Ndoro (GuruNdoro), a marketing graduate with extensive experience in e-commerce, Frenies Studio is passionate about helping African businesses succeed online.
           </p>
         </div>
+
+        {/* Free Call Lead Magnet */}
+        <div className="mb-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-100 shadow-sm">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Book Your Free Strategy Call</h3>
+              <p className="text-gray-600 mb-4">
+                Not sure which service is right for your business? Schedule a free consultation call with Takura to discuss your goals and get expert advice on your social media strategy.
+              </p>
+              <ul className="space-y-2 mb-4">
+                <li className="flex items-center">
+                  <Check className="h-4 w-4 mr-2 text-green-500" />
+                  <span>Personalized strategy assessment</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-4 w-4 mr-2 text-green-500" />
+                  <span>Expert advice from a certified marketing professional</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-4 w-4 mr-2 text-green-500" />
+                  <span>No obligation, completely free</span>
+                </li>
+              </ul>
+            </div>
+            <div className="flex-none">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                Book Your Free Call
+              </Button>
+            </div>
+          </div>
+        </div>
+
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <Card>
             <CardHeader className="pb-2">
