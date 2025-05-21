@@ -11,7 +11,7 @@ const Features = () => {
             Our Services
           </h2>
           <p className="text-gray-500 sm:text-xl">
-            Founded by Takura Ndor (GuruNdor), a marketing graduate with extensive experience in e-commerce, Frenies Studio is passionate about helping African businesses succeed online.
+            Founded by Takura Ndoro (GuruNdoro), a marketing graduate with extensive experience in e-commerce, Frenies Studio is passionate about helping African businesses succeed online.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

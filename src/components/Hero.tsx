@@ -9,7 +9,7 @@ const Hero = () => {
           Elevate Your Social Media Presence
         </h1>
         <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48">
-          Frenies Studio is a full-service social media management agency founded by Takura Ndor (GuruNdor), a marketing graduate with extensive e-commerce experience.
+          Frenies Studio is a full-service social media management agency founded by Takura Ndoro (GuruNdoro), a marketing graduate with extensive e-commerce experience.
         </p>
         <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
           <Button size="lg" className="inline-flex justify-center items-center">
