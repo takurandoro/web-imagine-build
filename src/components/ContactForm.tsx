@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { CalendarClock } from "lucide-react";
+import { CalendarClock, Mail, Phone } from "lucide-react";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -12,8 +12,8 @@ const ContactForm = () => {
     name: "",
     email: "",
     message: "",
-    service: "free-call", // Changed default to free-call
-    phoneNumber: "", // Added phone number field
+    service: "free-call", // Default to free-call
+    phoneNumber: "",
   });
 
   const handleChange = (
@@ -38,6 +38,10 @@ const ContactForm = () => {
     setFormData({ name: "", email: "", message: "", service: "free-call", phoneNumber: "" });
   };
 
+  const handleBookFreeCall = () => {
+    window.open("https://calendar.app.google/akSVg2rC9YGMkj468", "_blank");
+  };
+
   return (
     <section id="contact" className="bg-white py-24">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -47,6 +51,33 @@ const ContactForm = () => {
         <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">
           Ready to elevate your social media presence? Let's discuss how Frenies Studio can help your business grow online.
         </p>
+        
+        <div className="flex flex-col md:flex-row gap-6 mb-10 justify-center">
+          <a 
+            href="mailto:freniestudio@gmail.com" 
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
+          >
+            <Mail className="h-5 w-5" /> 
+            freniestudio@gmail.com
+          </a>
+          <a 
+            href="tel:+263" 
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
+          >
+            <Phone className="h-5 w-5" /> 
+            Contact via phone
+          </a>
+          <a 
+            href="https://calendar.app.google/akSVg2rC9YGMkj468" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
+          >
+            <CalendarClock className="h-5 w-5" /> 
+            Schedule a call
+          </a>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-8">
           <div>
             <label
@@ -139,16 +170,27 @@ const ContactForm = () => {
               required
             />
           </div>
-          <Button type="submit" className="px-5 py-3 flex items-center gap-2">
-            {formData.service === "free-call" ? (
-              <>
+          
+          {formData.service === "free-call" ? (
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button type="submit" className="px-5 py-3 flex items-center gap-2">
                 <CalendarClock className="h-5 w-5" />
-                Book Free Strategy Call
-              </>
-            ) : (
-              "Send message"
-            )}
-          </Button>
+                Send Request
+              </Button>
+              <Button 
+                type="button" 
+                onClick={handleBookFreeCall}
+                className="px-5 py-3 flex items-center gap-2"
+              >
+                <CalendarClock className="h-5 w-5" />
+                Book Directly on Calendar
+              </Button>
+            </div>
+          ) : (
+            <Button type="submit" className="px-5 py-3">
+              Send message
+            </Button>
+          )}
         </form>
       </div>
     </section>
