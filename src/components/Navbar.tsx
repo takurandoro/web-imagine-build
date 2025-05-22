@@ -23,6 +23,15 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.style.display = 'none';
+    // Using optional chaining to safely access nextSibling
+    const sibling = e.currentTarget.nextSibling as HTMLElement;
+    if (sibling) {
+      sibling.style.display = 'block';
+    }
+  };
+
   return (
     <nav className={`fixed w-full z-20 top-0 left-0 transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md shadow-md" : "bg-transparent"}`}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -32,10 +41,7 @@ const Navbar = () => {
             alt="Frenies Studio" 
             className="h-8 mr-3 transition-all duration-300" 
             style={{ objectFit: "contain" }}
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-              e.currentTarget.nextSibling.style.display = 'block';
-            }}
+            onError={handleImageError}
           />
           <span className={`self-center text-2xl font-semibold whitespace-nowrap transition-colors duration-300 ${scrolled ? "text-gray-900" : "text-white"}`}>
             Frenies Studio

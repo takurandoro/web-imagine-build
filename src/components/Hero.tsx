@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
           
           <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 relative z-20">
-            <div className="py-8 px-6 text-white rounded-lg mb-4 bg-gradient-to-r from-purple-800/50 to-black/50 backdrop-blur-sm border border-white/10">
+            <div className="py-8 px-6 text-white rounded-lg mb-4 backdrop-blur-sm border border-white/10 bg-gradient-to-r from-purple-900/40 to-black/40 shadow-lg">
               <h2 className="text-3xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200">
                 GROW & SELL ON SOCIAL MEDIA
               </h2>
