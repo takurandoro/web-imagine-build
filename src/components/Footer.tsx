@@ -8,7 +8,12 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
-              <img src="/logo-white.png" alt="Frenies Studio Logo" className="h-10 mr-3" />
+              <img 
+                src="/logo-white.png" 
+                alt="Frenies Studio Logo" 
+                className="h-8 mr-3" 
+                style={{ objectFit: "contain" }}
+              />
               <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Frenies Studio</span>
             </a>
             <p className="mt-2 text-gray-400 max-w-xs">

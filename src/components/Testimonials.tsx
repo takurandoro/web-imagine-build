@@ -26,11 +26,11 @@ const Testimonials = () => {
             <div className="flex justify-between items-start">
               <div className="flex items-center mb-4">
                 <Avatar className="h-14 w-14 border-2 border-purple-200 mr-4">
-                  <AvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&auto=format&fit=crop" />
-                  <AvatarFallback className="bg-purple-100 text-purple-700">MB</AvatarFallback>
+                  <AvatarImage src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=400&auto=format&fit=crop" />
+                  <AvatarFallback className="bg-purple-100 text-purple-700">JM</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Martha Brown</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">James Mwangi</h3>
                   <p className="text-sm text-gray-500">Fashion Boutique Owner</p>
                 </div>
               </div>
@@ -63,11 +63,11 @@ const Testimonials = () => {
             <div className="flex justify-between items-start">
               <div className="flex items-center mb-4">
                 <Avatar className="h-14 w-14 border-2 border-purple-200 mr-4">
-                  <AvatarImage src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&auto=format&fit=crop" />
-                  <AvatarFallback className="bg-purple-100 text-purple-700">RK</AvatarFallback>
+                  <AvatarImage src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=400&auto=format&fit=crop" />
+                  <AvatarFallback className="bg-purple-100 text-purple-700">CN</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Robert Kiyosaki</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Chioma Nduka</h3>
                   <p className="text-sm text-gray-500">E-commerce Store Owner</p>
                 </div>
               </div>

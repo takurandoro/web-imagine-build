@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { CalendarClock, Mail, Phone, ArrowRight, Check } from "lucide-react";
+import { sendEmail } from "@/services/EmailService";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -28,22 +29,53 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission with delay
-    setTimeout(() => {
+    // Form validation
+    if (!formData.name || !formData.email || !formData.phoneNumber || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
       console.log("Form submitted:", formData);
+      
+      // Send email using our email service
+      await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        phoneNumber: formData.phoneNumber,
+        service: formData.service
+      });
+      
+      // Show success message
       toast({
         title: "Message sent!",
         description: formData.service === "free-call" 
           ? "Thank you for booking a free strategy call. We'll contact you shortly to schedule a time!"
           : "Thank you for your interest in Frenies Studio. We'll get back to you shortly!",
       });
+      
+      // Reset form
       setFormData({ name: "", email: "", message: "", service: "free-call", phoneNumber: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "Sorry, there was a problem sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const handleBookFreeCall = () => {

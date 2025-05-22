@@ -33,8 +33,8 @@ const Hero = () => {
             </Button>
           </div>
           <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
-            <span className="font-semibold text-gray-400 uppercase">CERTIFIED IN</span>
-            <div className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
+            <span className="font-semibold text-gray-300 uppercase block mb-4">CERTIFIED IN</span>
+            <div className="flex flex-wrap justify-center items-center text-gray-300 sm:justify-between">
               <div className="mr-5 mb-5 lg:mb-0 hover:text-purple-400 transition-colors">
                 <svg className="h-8" viewBox="0 0 132 29" fill="currentColor">
                   <path d="M39.4,29l0-13.2L45,22.4h1.3l5.5-6.6v13.1h5.7V5.5h-5l-6.9,8.3l-6.8-8.3h-5L34,29H39.4z M70.5,29V23.8h-9.1v-5.4h7.9v-5h-7.9v-2.9h8.9V5.5h-14.7V29H70.5z M89.3,29l-5.2-7.8l5-7.7h-6.4l-4.2,6.7V0.7h-5.7V29h5.7v-7l4.4,7H89.3z M90.4,29h5.7V5.5h-5.7V29z M90.4,4.2h5.7V0h-5.7V4.2z M99.1,29V13.3h-4.7v4.1c0,3.3-0.4,7.9-2.6,11.6h-2V40h4.7v-7.5h4.7V40h5V29H99.1z M115.8,29.7c4.7,0,7.7-3.6,7.7-8.6s-3-8.6-7.7-8.6s-7.7,3.6-7.7,8.6S111,29.7,115.8,29.7z M115.8,24.3c-1.5,0-2.5-1.4-2.5-3.3s1-3.3,2.5-3.3s2.5,1.4,2.5,3.3S117.2,24.3,115.8,24.3z M131.2,29.7c2.1,0,3.2-0.9,3.9-1.6l0.7,1h3.3V13.3H134v7.7c0,1.7-1.1,3.3-3,3.3c-1.1,0-2-0.5-2-2v-9.1h-5.2v10C123.9,27.6,127,29.7,131.2,29.7z"></path>

@@ -30,7 +30,8 @@ const Navbar = () => {
           <img 
             src={scrolled ? "/logo-purple.png" : "/logo-white.png"} 
             alt="Frenies Studio Logo" 
-            className="h-10 mr-3 transition-all duration-300" 
+            className="h-8 mr-3 transition-all duration-300" 
+            style={{ objectFit: "contain" }}
           />
           <span className={`self-center text-2xl font-semibold whitespace-nowrap transition-colors duration-300 ${scrolled ? "text-gray-900" : "text-white"}`}>
             Frenies Studio

@@ -96,7 +96,7 @@ const Features = () => {
           
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-gradient-to-br from-white to-purple-50 relative overflow-hidden">
             <div className="absolute top-0 right-0">
-              <div className="bg-purple-600 text-white text-xs px-3 py-1 rotate-45 transform translate-x-2 -translate-y-1 w-32 text-center font-semibold">
+              <div className="bg-purple-600 text-white text-xs font-semibold px-10 py-1 transform rotate-45 translate-x-7 -translate-y-2 shadow-lg">
                 POPULAR
               </div>
             </div>
