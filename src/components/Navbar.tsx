@@ -29,9 +29,13 @@ const Navbar = () => {
         <a href="/" className="flex items-center">
           <img 
             src={scrolled ? "/logo-purple.png" : "/logo-white.png"} 
-            alt="Frenies Studio Logo" 
+            alt="Frenies Studio" 
             className="h-8 mr-3 transition-all duration-300" 
             style={{ objectFit: "contain" }}
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.nextSibling.style.display = 'block';
+            }}
           />
           <span className={`self-center text-2xl font-semibold whitespace-nowrap transition-colors duration-300 ${scrolled ? "text-gray-900" : "text-white"}`}>
             Frenies Studio
