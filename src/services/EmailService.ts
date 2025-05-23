@@ -21,7 +21,8 @@ export const sendEmail = async (params: EmailParams) => {
     reply_to: params.email,
     message: params.message,
     phone_number: params.phoneNumber,
-    service_type: params.service
+    service_type: params.service,
+    to_email: 'freniestudio@gmail.com'
   };
 
   try {
@@ -33,8 +34,8 @@ export const sendEmail = async (params: EmailParams) => {
     // 2. Add your EmailJS credentials
     // await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams, "YOUR_USER_ID");
     
-    // For now, we'll just return a success
-    console.log("Email would be sent with these parameters:", templateParams);
+    // For now, we'll just simulate the email sending
+    console.log("Email would be sent to freniestudio@gmail.com with these parameters:", templateParams);
     return { success: true };
   } catch (error) {
     console.error("Error sending email:", error);

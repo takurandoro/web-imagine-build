@@ -40,18 +40,6 @@ const Hero = () => {
               </a>
             </Button>
           </div>
-          
-          <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 relative z-20">
-            <h2 className="text-3xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200">
-              GROW & SELL ON SOCIAL MEDIA
-            </h2>
-            <h3 className="text-xl font-semibold mb-2 text-purple-200">
-              AS A BUSY BUSINESS OWNER
-            </h3>
-            <p className="text-lg text-gray-200">
-              Done for you monthly social media marketing services.
-            </p>
-          </div>
         </div>
         
         <div className="absolute bottom-0 left-0 w-full">
@@ -61,19 +49,22 @@ const Hero = () => {
             </svg>
             
             <div className="absolute bottom-16 w-full overflow-hidden">
-              <div className={`flex space-x-12 ${animatedIcons ? 'animate-slide' : ''}`}>
-                <div className="flex space-x-12 animate-marquee">
-                  <Facebook size={28} className="text-purple-600" />
-                  <Instagram size={28} className="text-purple-600" />
-                  <Twitter size={28} className="text-purple-600" />
-                  <Linkedin size={28} className="text-purple-600" />
-                  <Youtube size={28} className="text-purple-600" />
-                  <Facebook size={28} className="text-purple-600" />
-                  <Instagram size={28} className="text-purple-600" />
-                  <Twitter size={28} className="text-purple-600" />
-                  <Linkedin size={28} className="text-purple-600" />
-                  <Youtube size={28} className="text-purple-600" />
-                </div>
+              <div className="flex space-x-8 animate-marquee">
+                <Facebook size={32} className="text-purple-600 flex-shrink-0" />
+                <Instagram size={32} className="text-purple-600 flex-shrink-0" />
+                <Twitter size={32} className="text-purple-600 flex-shrink-0" />
+                <Linkedin size={32} className="text-purple-600 flex-shrink-0" />
+                <Youtube size={32} className="text-purple-600 flex-shrink-0" />
+                <Facebook size={32} className="text-purple-600 flex-shrink-0" />
+                <Instagram size={32} className="text-purple-600 flex-shrink-0" />
+                <Twitter size={32} className="text-purple-600 flex-shrink-0" />
+                <Linkedin size={32} className="text-purple-600 flex-shrink-0" />
+                <Youtube size={32} className="text-purple-600 flex-shrink-0" />
+                <Facebook size={32} className="text-purple-600 flex-shrink-0" />
+                <Instagram size={32} className="text-purple-600 flex-shrink-0" />
+                <Twitter size={32} className="text-purple-600 flex-shrink-0" />
+                <Linkedin size={32} className="text-purple-600 flex-shrink-0" />
+                <Youtube size={32} className="text-purple-600 flex-shrink-0" />
               </div>
             </div>
           </div>

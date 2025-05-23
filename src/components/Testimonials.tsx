@@ -26,7 +26,7 @@ const Testimonials = () => {
             <div className="flex justify-between items-start">
               <div className="flex items-center mb-4">
                 <Avatar className="h-14 w-14 border-2 border-purple-200 mr-4">
-                  <AvatarImage src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=400&auto=format&fit=crop" />
+                  <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop&q=80" />
                   <AvatarFallback className="bg-purple-100 text-purple-700">JM</AvatarFallback>
                 </Avatar>
                 <div>
@@ -63,7 +63,7 @@ const Testimonials = () => {
             <div className="flex justify-between items-start">
               <div className="flex items-center mb-4">
                 <Avatar className="h-14 w-14 border-2 border-purple-200 mr-4">
-                  <AvatarImage src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=400&auto=format&fit=crop" />
+                  <AvatarImage src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&auto=format&fit=crop&q=80" />
                   <AvatarFallback className="bg-purple-100 text-purple-700">CN</AvatarFallback>
                 </Avatar>
                 <div>
