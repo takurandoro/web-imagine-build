@@ -12,7 +12,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-b from-purple-900 to-black pt-28 pb-20 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-purple-900 to-black pt-28 pb-32 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-black/90"></div>
         <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
@@ -26,7 +26,7 @@ const Hero = () => {
           <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 xl:px-48">
             Frenies Studio is a full-service social media management agency founded by Takura Ndoro (GuruNdoro), a marketing graduate with extensive e-commerce experience.
           </p>
-          <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+          <div className="flex flex-col mb-16 lg:mb-20 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <Button size="lg" className="inline-flex justify-center items-center bg-purple-600 hover:bg-purple-700 transform transition hover:scale-105" asChild>
               <a href="#services" className="group">
                 Our Services 
@@ -48,23 +48,23 @@ const Hero = () => {
               <path fill="#ffffff" fillOpacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
             
-            <div className="absolute bottom-16 w-full overflow-hidden">
-              <div className="flex space-x-8 animate-marquee">
-                <Facebook size={32} className="text-purple-600 flex-shrink-0" />
-                <Instagram size={32} className="text-purple-600 flex-shrink-0" />
-                <Twitter size={32} className="text-purple-600 flex-shrink-0" />
-                <Linkedin size={32} className="text-purple-600 flex-shrink-0" />
-                <Youtube size={32} className="text-purple-600 flex-shrink-0" />
-                <Facebook size={32} className="text-purple-600 flex-shrink-0" />
-                <Instagram size={32} className="text-purple-600 flex-shrink-0" />
-                <Twitter size={32} className="text-purple-600 flex-shrink-0" />
-                <Linkedin size={32} className="text-purple-600 flex-shrink-0" />
-                <Youtube size={32} className="text-purple-600 flex-shrink-0" />
-                <Facebook size={32} className="text-purple-600 flex-shrink-0" />
-                <Instagram size={32} className="text-purple-600 flex-shrink-0" />
-                <Twitter size={32} className="text-purple-600 flex-shrink-0" />
-                <Linkedin size={32} className="text-purple-600 flex-shrink-0" />
-                <Youtube size={32} className="text-purple-600 flex-shrink-0" />
+            <div className="absolute bottom-12 w-full overflow-hidden">
+              <div className="animate-marquee whitespace-nowrap">
+                <Facebook size={32} className="text-purple-600 inline-block mx-4" />
+                <Instagram size={32} className="text-purple-600 inline-block mx-4" />
+                <Twitter size={32} className="text-purple-600 inline-block mx-4" />
+                <Linkedin size={32} className="text-purple-600 inline-block mx-4" />
+                <Youtube size={32} className="text-purple-600 inline-block mx-4" />
+                <Facebook size={32} className="text-purple-600 inline-block mx-4" />
+                <Instagram size={32} className="text-purple-600 inline-block mx-4" />
+                <Twitter size={32} className="text-purple-600 inline-block mx-4" />
+                <Linkedin size={32} className="text-purple-600 inline-block mx-4" />
+                <Youtube size={32} className="text-purple-600 inline-block mx-4" />
+                <Facebook size={32} className="text-purple-600 inline-block mx-4" />
+                <Instagram size={32} className="text-purple-600 inline-block mx-4" />
+                <Twitter size={32} className="text-purple-600 inline-block mx-4" />
+                <Linkedin size={32} className="text-purple-600 inline-block mx-4" />
+                <Youtube size={32} className="text-purple-600 inline-block mx-4" />
               </div>
             </div>
           </div>
