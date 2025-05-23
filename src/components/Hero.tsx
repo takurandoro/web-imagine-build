@@ -11,8 +11,16 @@ const Hero = () => {
     setAnimatedIcons(true);
   }, []);
 
+  const handleServicesClick = () => {
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleBookCallClick = () => {
+    window.open("https://calendar.app.google/akSVg2rC9YGMkj468", "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <section className="relative bg-gradient-to-b from-purple-900 to-black pt-28 pb-40 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-purple-900 to-black pt-28 pb-48 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-black/90"></div>
         <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
@@ -26,18 +34,25 @@ const Hero = () => {
           <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 xl:px-48">
             Frenies Studio is a full-service social media management agency founded by Takura Ndoro (GuruNdoro), a marketing graduate with extensive e-commerce experience.
           </p>
-          <div className="flex flex-col mb-24 lg:mb-28 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <Button size="lg" className="inline-flex justify-center items-center bg-purple-600 hover:bg-purple-700 transform transition hover:scale-105" asChild>
-              <a href="#services" className="group">
+          <div className="flex flex-col mb-32 lg:mb-36 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 relative z-20">
+            <Button 
+              size="lg" 
+              className="inline-flex justify-center items-center bg-purple-600 hover:bg-purple-700 transform transition hover:scale-105 cursor-pointer"
+              onClick={handleServicesClick}
+            >
+              <span className="group flex items-center">
                 Our Services 
                 <ArrowRight className="ml-2 h-5 w-5 transform transition-transform group-hover:translate-x-1" />
-              </a>
+              </span>
             </Button>
-            <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 inline-flex justify-center items-center gap-2 transform transition hover:scale-105" asChild>
-              <a href="https://calendar.app.google/akSVg2rC9YGMkj468" target="_blank" rel="noopener noreferrer">
-                <CalendarClock className="h-5 w-5" />
-                Book Your Free Call
-              </a>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 inline-flex justify-center items-center gap-2 transform transition hover:scale-105 cursor-pointer"
+              onClick={handleBookCallClick}
+            >
+              <CalendarClock className="h-5 w-5" />
+              Book Your Free Call
             </Button>
           </div>
         </div>
