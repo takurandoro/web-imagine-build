@@ -1,8 +1,16 @@
 
 import { Button } from "@/components/ui/button";
-import { CalendarClock, ArrowRight } from "lucide-react";
+import { CalendarClock, ArrowRight, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [animatedIcons, setAnimatedIcons] = useState(false);
+
+  useEffect(() => {
+    // Start the animation after component mounts
+    setAnimatedIcons(true);
+  }, []);
+
   return (
     <section className="relative bg-gradient-to-b from-purple-900 to-black pt-28 pb-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -34,24 +42,41 @@ const Hero = () => {
           </div>
           
           <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 relative z-20">
-            <div className="py-8 px-6 text-white rounded-lg mb-4 backdrop-blur-sm border border-white/10 bg-gradient-to-r from-purple-900/40 to-black/40 shadow-lg">
-              <h2 className="text-3xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200">
-                GROW & SELL ON SOCIAL MEDIA
-              </h2>
-              <h3 className="text-xl font-semibold mb-6 text-purple-200">
-                AS A BUSY BUSINESS OWNER
-              </h3>
-              <p className="text-lg text-gray-200">
-                Done for you monthly social media marketing services.
-              </p>
-            </div>
+            <h2 className="text-3xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200">
+              GROW & SELL ON SOCIAL MEDIA
+            </h2>
+            <h3 className="text-xl font-semibold mb-2 text-purple-200">
+              AS A BUSY BUSINESS OWNER
+            </h3>
+            <p className="text-lg text-gray-200">
+              Done for you monthly social media marketing services.
+            </p>
           </div>
         </div>
         
         <div className="absolute bottom-0 left-0 w-full">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path fill="#ffffff" fillOpacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-          </svg>
+          <div className="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
+              <path fill="#ffffff" fillOpacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            
+            <div className="absolute bottom-16 w-full overflow-hidden">
+              <div className={`flex space-x-12 ${animatedIcons ? 'animate-slide' : ''}`}>
+                <div className="flex space-x-12 animate-marquee">
+                  <Facebook size={28} className="text-purple-600" />
+                  <Instagram size={28} className="text-purple-600" />
+                  <Twitter size={28} className="text-purple-600" />
+                  <Linkedin size={28} className="text-purple-600" />
+                  <Youtube size={28} className="text-purple-600" />
+                  <Facebook size={28} className="text-purple-600" />
+                  <Instagram size={28} className="text-purple-600" />
+                  <Twitter size={28} className="text-purple-600" />
+                  <Linkedin size={28} className="text-purple-600" />
+                  <Youtube size={28} className="text-purple-600" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
