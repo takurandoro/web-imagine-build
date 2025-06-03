@@ -1,186 +1,183 @@
 
-import { TrendingUp, Users, Target, Zap, Sparkles, Star, ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Check, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const Features = () => {
-  const [visibleCards, setVisibleCards] = useState<number[]>([]);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setVisibleCards(prev => {
-        if (prev.length < 3) {
-          return [...prev, prev.length];
-        }
-        return prev;
-      });
-    }, 200);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const features = [
-    {
-      icon: TrendingUp,
-      title: "Growth Labs",
-      description: "Performance-based social media management. We only succeed when you do. Starting at just $100, we'll bring you paying clients or you don't pay us.",
-      gradient: "from-purple-600 via-pink-600 to-blue-600",
-      accentColor: "purple-400",
-      stats: "300% avg growth",
-      delay: "delay-0"
-    },
-    {
-      icon: Users,
-      title: "Novus",
-      description: "Premium content creation and account management for established brands. Let us maintain your digital presence while you focus on your business.",
-      gradient: "from-pink-600 via-purple-600 to-indigo-600",
-      accentColor: "pink-400",
-      stats: "500+ brands served",
-      delay: "delay-200"
-    },
-    {
-      icon: Target,
-      title: "Guru Consults",
-      description: "Strategic consulting sessions with Takura Ndoro himself. Get personalized advice on scaling your social media presence and digital marketing strategy.",
-      gradient: "from-blue-600 via-purple-600 to-pink-600",
-      accentColor: "blue-400",
-      stats: "1-on-1 expertise",
-      delay: "delay-400"
-    }
-  ];
-
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-br from-gray-900 via-purple-900 to-black overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
-        
-        {/* Floating particles */}
-        <div className="absolute top-32 left-1/4 animate-bounce delay-300">
-          <Sparkles className="w-6 h-6 text-purple-400/40" />
-        </div>
-        <div className="absolute top-48 right-1/3 animate-bounce delay-700">
-          <Zap className="w-5 h-5 text-pink-400/40" />
-        </div>
-        <div className="absolute bottom-48 left-1/3 animate-bounce delay-1000">
-          <Star className="w-7 h-7 text-blue-400/40" />
-        </div>
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4">
-        {/* Header Section */}
-        <div className="text-center mb-20">
-          <div className="animate-fade-in">
-            <h2 className="text-6xl md:text-7xl font-black text-white mb-6 leading-tight">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 animate-text-glow">
-                Our Services
-              </span>
-            </h2>
-            <div className="w-32 h-2 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full animate-pulse mb-8"></div>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Choose your path to <span className="text-purple-400 font-bold">social media domination</span>
-            </p>
-          </div>
+    <section id="services" className="bg-white py-24">
+      <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <div className="max-w-screen-md mb-8 lg:mb-16">
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 relative pb-3 inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1 after:w-20 after:rounded-full after:bg-purple-600">
+            Our Services
+          </h2>
+          <p className="text-gray-500 sm:text-xl">
+            Founded by Takura Ndoro (GuruNdoro), a marketing graduate with extensive experience in e-commerce, Frenies Studio is passionate about helping African businesses succeed online.
+          </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            const isVisible = visibleCards.includes(index);
-            const isHovered = hoveredCard === index;
-            
-            return (
-              <div
-                key={index}
-                className={`group relative transform transition-all duration-700 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                } ${feature.delay}`}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
+        {/* Free Call Lead Magnet */}
+        <div className="mb-12 p-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg border-l-4 border-purple-600 shadow-lg transform transition-all hover:shadow-xl hover:scale-[1.01]">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Book Your Free Strategy Call</h3>
+              <p className="text-gray-600 mb-4">
+                Not sure which service is right for your business? Schedule a free consultation call with Takura to discuss your goals and get expert advice on your social media strategy.
+              </p>
+              <ul className="space-y-2 mb-4">
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-purple-600" />
+                  <span>Personalized strategy assessment</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-purple-600" />
+                  <span>Expert advice from a certified marketing professional</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-purple-600" />
+                  <span>No obligation, completely free</span>
+                </li>
+              </ul>
+            </div>
+            <div className="flex-none">
+              <Button 
+                size="lg" 
+                className="bg-purple-600 hover:bg-purple-700 transform transition-all hover:scale-105 flex items-center gap-2"
+                onClick={() => window.open("https://calendar.app.google/akSVg2rC9YGMkj468", "_blank")}
               >
-                {/* Glow effect */}
-                <div className={`absolute -inset-1 bg-gradient-to-r ${feature.gradient} rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500 animate-glow`}></div>
-                
-                {/* Main Card */}
-                <div className={`relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 h-full transform transition-all duration-500 ${
-                  isHovered ? 'scale-105 rotate-1' : 'scale-100 rotate-0'
-                } hover:border-white/30`}>
-                  
-                  {/* Floating Icon */}
-                  <div className={`relative mb-8 transform transition-all duration-500 ${
-                    isHovered ? 'scale-110 -rotate-12' : 'scale-100 rotate-0'
-                  }`}>
-                    <div className={`w-20 h-20 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center animate-float`}>
-                      <Icon className="w-10 h-10 text-white animate-pulse" />
-                    </div>
-                    {/* Sparkles around icon */}
-                    {isHovered && (
-                      <>
-                        <Sparkles className="absolute -top-2 -right-2 w-4 h-4 text-yellow-400 animate-bounce" />
-                        <Sparkles className="absolute -bottom-2 -left-2 w-3 h-3 text-purple-400 animate-bounce delay-200" />
-                      </>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="space-y-6">
-                    <h3 className={`text-3xl font-bold text-white group-hover:text-${feature.accentColor} transition-colors duration-300`}>
-                      {feature.title}
-                    </h3>
-                    
-                    <div className={`w-20 h-1 bg-gradient-to-r ${feature.gradient} rounded-full transform transition-all duration-500 ${
-                      isHovered ? 'w-32' : 'w-20'
-                    }`}></div>
-                    
-                    <p className="text-gray-300 text-lg leading-relaxed group-hover:text-white transition-colors duration-300">
-                      {feature.description}
-                    </p>
-                    
-                    {/* Stats Badge */}
-                    <div className={`inline-flex items-center px-4 py-2 bg-gradient-to-r ${feature.gradient} rounded-full text-white font-semibold text-sm transform transition-all duration-300 ${
-                      isHovered ? 'scale-105 animate-pulse' : 'scale-100'
-                    }`}>
-                      <Star className="w-4 h-4 mr-2 animate-spin" />
-                      {feature.stats}
-                    </div>
-                  </div>
-
-                  {/* Hover Arrow */}
-                  <div className={`absolute bottom-8 right-8 transform transition-all duration-300 ${
-                    isHovered ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-                  }`}>
-                    <ArrowRight className={`w-6 h-6 text-${feature.accentColor} animate-bounce`} />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                Book Your Free Call
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center animate-fade-in delay-1000">
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-12 border border-white/10 max-w-4xl mx-auto">
-            <h3 className="text-4xl font-bold text-white mb-6">
-              Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse">Transform</span> Your Business?
-            </h3>
-            <p className="text-xl text-gray-300 mb-8">
-              Join 250+ brands that have revolutionized their social media presence with Frenies Studio
-            </p>
-            <button 
-              className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-6 px-12 text-lg rounded-full transform transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 animate-glow"
-              onClick={() => window.open("https://calendar.app.google/akSVg2rC9YGMkj468", "_blank")}
-            >
-              <span className="relative z-10 flex items-center">
-                <Sparkles className="mr-3 h-6 w-6 animate-pulse" />
-                Book Your Strategy Call Now
-                <ArrowRight className="ml-3 h-6 w-6 transform transition-transform group-hover:translate-x-2" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
-          </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-gradient-to-br from-white to-purple-50">
+            <div className="h-2 bg-purple-600 rounded-t-lg"></div>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-2xl font-bold flex items-center">
+                <span className="bg-purple-100 text-purple-700 p-2 rounded-full mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 11h1a3 3 0 0 1 0 6h-1"></path>
+                    <path d="M9 12v6"></path>
+                    <path d="M13 12v6"></path>
+                    <path d="M14 7.4c0 .34-.07.69-.18 1.1l-.3 1M8.5 7.4V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2.4"></path>
+                    <path d="M3 12a9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9Z"></path>
+                  </svg>
+                </span>
+                Novus
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-500 mb-4">
+                Complete social media management service. We manage your Instagram and Facebook, posting your content while ensuring brand consistency.
+              </p>
+              <p className="text-xl font-bold mb-4 text-purple-600">$250/month</p>
+              <ul className="space-y-3">
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>Instagram Management</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>Facebook Management</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>Brand Consistency</span>
+                </li>
+              </ul>
+              <Button variant="outline" className="mt-6 w-full border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white" onClick={() => location.href='#contact'}>
+                Get Started
+              </Button>
+            </CardContent>
+          </Card>
+          
+          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-gradient-to-br from-white to-purple-50 relative">
+            <div className="absolute top-3 right-3 z-10">
+              <div className="bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                POPULAR
+              </div>
+            </div>
+            <div className="h-2 bg-purple-600 rounded-t-lg"></div>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-2xl font-bold flex items-center">
+                <span className="bg-purple-100 text-purple-700 p-2 rounded-full mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 20h.01"></path>
+                    <path d="M7 20v-4"></path>
+                    <path d="M12 20v-8"></path>
+                    <path d="M17 20V8"></path>
+                    <path d="M22 4v16"></path>
+                  </svg>
+                </span>
+                Growth Labs
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-500 mb-4">
+                Our paid ads service where we run advertisements for your company using our own money until you get clients or leads.
+              </p>
+              <p className="text-xl font-bold mb-4 text-purple-600">$100 sign-up fee + 5% per lead / 10% per client</p>
+              <ul className="space-y-3">
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>Paid Advertisement</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>Lead Generation</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>No Upfront Ad Costs</span>
+                </li>
+              </ul>
+              <Button className="mt-6 w-full bg-purple-600 hover:bg-purple-700" onClick={() => location.href='#contact'}>
+                Get Started
+              </Button>
+            </CardContent>
+          </Card>
+          
+          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-gradient-to-br from-white to-purple-50">
+            <div className="h-2 bg-purple-600 rounded-t-lg"></div>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-2xl font-bold flex items-center">
+                <span className="bg-purple-100 text-purple-700 p-2 rounded-full mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"></path>
+                    <path d="M17.64 15 22 10.64"></path>
+                    <path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"></path>
+                  </svg>
+                </span>
+                Koncept
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-500 mb-4">
+                Content creation service where we create engaging content for your brand including stills, reels, stories, and user-generated content (UGC).
+              </p>
+              <p className="text-xl font-bold mb-4 text-purple-600">Contact for pricing</p>
+              <ul className="space-y-3">
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>Content Creation</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>Stills & Reels</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-5 w-5 mr-2 text-green-500" />
+                  <span>UGC Production</span>
+                </li>
+              </ul>
+              <Button variant="outline" className="mt-6 w-full border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white" onClick={() => location.href='#contact'}>
+                Get Started
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
