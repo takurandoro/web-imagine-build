@@ -1,23 +1,42 @@
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { CalendarClock, Mail, Phone, ArrowRight, Check } from "lucide-react";
+import { CalendarClock, Mail, Phone, ArrowRight, Check, Send, Sparkles } from "lucide-react";
 import { sendEmail } from "@/services/EmailService";
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-    service: "free-call", // Default to free-call
+    service: "free-call",
     phoneNumber: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -29,11 +48,18 @@ const ContactForm = () => {
     }));
   };
 
+  const handleFocus = (fieldName: string) => {
+    setFocusedField(fieldName);
+  };
+
+  const handleBlur = () => {
+    setFocusedField(null);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Form validation
     if (!formData.name || !formData.email || !formData.phoneNumber || !formData.message) {
       toast({
         title: "Error",
@@ -45,9 +71,6 @@ const ContactForm = () => {
     }
 
     try {
-      console.log("Form submitted:", formData);
-      
-      // Send email using our email service
       await sendEmail({
         name: formData.name,
         email: formData.email,
@@ -56,7 +79,6 @@ const ContactForm = () => {
         service: formData.service
       });
       
-      // Show success message
       toast({
         title: "Message sent!",
         description: formData.service === "free-call" 
@@ -64,7 +86,6 @@ const ContactForm = () => {
           : "Thank you for your interest in Frenies Studio. We'll get back to you shortly!",
       });
       
-      // Reset form
       setFormData({ name: "", email: "", message: "", service: "free-call", phoneNumber: "" });
     } catch (error) {
       console.error("Error sending email:", error);
@@ -83,195 +104,305 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="bg-white py-24 relative">
-      {/* Purple accent */}
-      <div className="hidden lg:block absolute top-0 right-0 w-1/3 h-3/4 bg-purple-100 rounded-bl-full opacity-50 z-0"></div>
+    <section ref={sectionRef} id="contact" className="bg-gradient-to-br from-gray-50 to-purple-50 py-24 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="contact-bg-elements">
+          <div className="contact-orb contact-orb-1"></div>
+          <div className="contact-orb contact-orb-2"></div>
+          <div className="contact-orb contact-orb-3"></div>
+        </div>
+      </div>
       
       <div className="relative z-10 py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 relative pb-3 inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:h-1 after:w-20 after:rounded-full after:bg-purple-600">
-          Contact Us
-        </h2>
-        <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">
-          Ready to elevate your social media presence? Let's discuss how Frenies Studio can help your business grow online.
-        </p>
+        <div className={`text-center mb-12 transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight font-extrabold text-gray-900 relative">
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Contact Us
+            </span>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
+          </h2>
+          <p className="mb-8 lg:mb-16 font-light text-gray-600 text-lg md:text-xl leading-relaxed">
+            Ready to elevate your social media presence? Let's discuss how Frenies Studio can help your business grow online.
+          </p>
+        </div>
         
-        <div className="flex flex-col md:flex-row gap-6 mb-10 justify-center">
+        {/* Contact Methods */}
+        <div className={`flex flex-col md:flex-row gap-4 mb-12 justify-center transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{animationDelay: '0.2s'}}>
           <a 
             href="mailto:freniestudio@gmail.com" 
-            className="flex items-center gap-2 text-gray-700 hover:text-purple-600 transition-colors bg-white shadow-md p-3 px-5 rounded-lg hover:shadow-lg"
+            className="group flex items-center gap-3 text-gray-700 hover:text-purple-600 transition-all duration-300 glass-card p-4 px-6 rounded-xl hover:scale-105"
           >
-            <Mail className="h-5 w-5" /> 
-            freniestudio@gmail.com
+            <Mail className="h-5 w-5 group-hover:animate-bounce" /> 
+            <span className="font-medium">freniestudio@gmail.com</span>
           </a>
           <a 
             href="tel:+263" 
-            className="flex items-center gap-2 text-gray-700 hover:text-purple-600 transition-colors bg-white shadow-md p-3 px-5 rounded-lg hover:shadow-lg"
+            className="group flex items-center gap-3 text-gray-700 hover:text-purple-600 transition-all duration-300 glass-card p-4 px-6 rounded-xl hover:scale-105"
           >
-            <Phone className="h-5 w-5" /> 
-            Contact via phone
+            <Phone className="h-5 w-5 group-hover:animate-bounce" /> 
+            <span className="font-medium">Contact via phone</span>
           </a>
           <a 
             href="https://calendar.app.google/akSVg2rC9YGMkj468" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-700 hover:text-purple-600 transition-colors bg-white shadow-md p-3 px-5 rounded-lg hover:shadow-lg"
+            className="group flex items-center gap-3 text-gray-700 hover:text-purple-600 transition-all duration-300 glass-card p-4 px-6 rounded-xl hover:scale-105"
           >
-            <CalendarClock className="h-5 w-5" /> 
-            Schedule a call
+            <CalendarClock className="h-5 w-5 group-hover:animate-bounce" /> 
+            <span className="font-medium">Schedule a call</span>
           </a>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 transition-transform hover:shadow-2xl">
+        {/* Enhanced Contact Form */}
+        <div className={`glass-card-premium rounded-3xl shadow-3xl p-8 md:p-10 border border-purple-200 transition-all duration-1000 hover:shadow-4xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{animationDelay: '0.4s'}}>
+          <div className="flex items-center justify-center mb-8">
+            <div className="p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mr-3">
+              <Sparkles className="h-6 w-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Let's Start Your Journey
+            </h3>
+          </div>
+
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+              <div className="space-y-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-900">
                   Your name
                 </label>
-                <Input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  required
-                  className="bg-gray-50 border border-gray-300 focus:ring-purple-500 focus:border-purple-500"
-                />
+                <div className="relative">
+                  <Input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus('name')}
+                    onBlur={handleBlur}
+                    placeholder="John Doe"
+                    required
+                    className={`transition-all duration-300 border-2 ${
+                      focusedField === 'name' 
+                        ? 'border-purple-500 ring-4 ring-purple-100 bg-white' 
+                        : 'border-gray-300 bg-gray-50 hover:border-purple-300'
+                    }`}
+                  />
+                  {focusedField === 'name' && (
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full animate-ping"></div>
+                  )}
+                </div>
               </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+              
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-900">
                   Your email
                 </label>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="name@company.com"
-                  required
-                  className="bg-gray-50 border border-gray-300 focus:ring-purple-500 focus:border-purple-500"
-                />
+                <div className="relative">
+                  <Input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus('email')}
+                    onBlur={handleBlur}
+                    placeholder="name@company.com"
+                    required
+                    className={`transition-all duration-300 border-2 ${
+                      focusedField === 'email' 
+                        ? 'border-purple-500 ring-4 ring-purple-100 bg-white' 
+                        : 'border-gray-300 bg-gray-50 hover:border-purple-300'
+                    }`}
+                  />
+                  {focusedField === 'email' && (
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full animate-ping"></div>
+                  )}
+                </div>
               </div>
             </div>
+            
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="phoneNumber"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+              <div className="space-y-2">
+                <label htmlFor="phoneNumber" className="block text-sm font-semibold text-gray-900">
                   Phone Number
                 </label>
-                <Input
-                  type="tel"
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  placeholder="+1 (123) 456-7890"
-                  required
-                  className="bg-gray-50 border border-gray-300 focus:ring-purple-500 focus:border-purple-500"
-                />
+                <div className="relative">
+                  <Input
+                    type="tel"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus('phoneNumber')}
+                    onBlur={handleBlur}
+                    placeholder="+1 (123) 456-7890"
+                    required
+                    className={`transition-all duration-300 border-2 ${
+                      focusedField === 'phoneNumber' 
+                        ? 'border-purple-500 ring-4 ring-purple-100 bg-white' 
+                        : 'border-gray-300 bg-gray-50 hover:border-purple-300'
+                    }`}
+                  />
+                  {focusedField === 'phoneNumber' && (
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full animate-ping"></div>
+                  )}
+                </div>
               </div>
-              <div>
-                <label
-                  htmlFor="service"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+              
+              <div className="space-y-2">
+                <label htmlFor="service" className="block text-sm font-semibold text-gray-900">
                   Service of Interest
                 </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 h-10"
-                  required
-                >
-                  <option value="free-call">Free Strategy Call</option>
-                  <option value="novus">Novus - Social Media Management</option>
-                  <option value="growth-labs">Growth Labs - Paid Ads</option>
-                  <option value="koncept">Koncept - Content Creation</option>
-                  <option value="other">Other</option>
-                </select>
+                <div className="relative">
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus('service')}
+                    onBlur={handleBlur}
+                    className={`w-full p-3 rounded-lg transition-all duration-300 border-2 ${
+                      focusedField === 'service' 
+                        ? 'border-purple-500 ring-4 ring-purple-100 bg-white' 
+                        : 'border-gray-300 bg-gray-50 hover:border-purple-300'
+                    }`}
+                    required
+                  >
+                    <option value="free-call">Free Strategy Call</option>
+                    <option value="novus">Novus - Social Media Management</option>
+                    <option value="growth-labs">Growth Labs - Paid Ads</option>
+                    <option value="koncept">Koncept - Content Creation</option>
+                    <option value="other">Other</option>
+                  </select>
+                  {focusedField === 'service' && (
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full animate-ping"></div>
+                  )}
+                </div>
               </div>
             </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block mb-2 text-sm font-medium text-gray-900"
-              >
+            
+            <div className="space-y-2">
+              <label htmlFor="message" className="block text-sm font-semibold text-gray-900">
                 Your message
               </label>
-              <Textarea
-                id="message"
-                name="message"
-                rows={6}
-                value={formData.message}
-                onChange={handleChange}
-                placeholder={formData.service === "free-call" ? "Let us know your availability for a call..." : "Tell us about your business and goals..."}
-                className="bg-gray-50 border border-gray-300 focus:ring-purple-500 focus:border-purple-500 h-36"
-                required
-              />
+              <div className="relative">
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  onFocus={() => handleFocus('message')}
+                  onBlur={handleBlur}
+                  placeholder={formData.service === "free-call" ? "Let us know your availability for a call..." : "Tell us about your business and goals..."}
+                  className={`transition-all duration-300 border-2 resize-none ${
+                    focusedField === 'message' 
+                      ? 'border-purple-500 ring-4 ring-purple-100 bg-white' 
+                      : 'border-gray-300 bg-gray-50 hover:border-purple-300'
+                  }`}
+                  required
+                />
+                {focusedField === 'message' && (
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full animate-ping"></div>
+                )}
+              </div>
             </div>
             
             {formData.service === "free-call" ? (
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button 
                   type="submit" 
-                  className="px-5 py-3 flex items-center gap-2 bg-purple-600 hover:bg-purple-700 transition transform hover:scale-[1.02]"
+                  className="group flex-1 px-6 py-4 flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-lg font-semibold"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+                      <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
                       Sending...
                     </>
                   ) : (
                     <>
-                      <Check className="h-5 w-5" />
+                      <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       Send Request
                     </>
                   )}
                 </Button>
+                
                 <Button 
                   type="button" 
                   onClick={handleBookFreeCall}
-                  className="px-5 py-3 flex items-center gap-2 bg-gray-800 hover:bg-gray-900 transition transform hover:scale-[1.02]"
+                  className="group flex-1 px-6 py-4 flex items-center justify-center gap-3 bg-gray-800 hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-lg font-semibold"
                 >
-                  <CalendarClock className="h-5 w-5" />
-                  Book Directly on Calendar
+                  <CalendarClock className="h-5 w-5 group-hover:rotate-12 transition-transform" />
+                  Book Directly
                 </Button>
               </div>
             ) : (
-              <Button 
-                type="submit" 
-                className="px-5 py-3 flex items-center gap-2 bg-purple-600 hover:bg-purple-700 transition transform hover:scale-[1.02]"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full mr-2"></div>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <ArrowRight className="h-5 w-5" />
-                    Send message
-                  </>
-                )}
-              </Button>
+              <div className="pt-4">
+                <Button 
+                  type="submit" 
+                  className="group w-full px-6 py-4 flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-lg font-semibold"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      Send Message
+                    </>
+                  )}
+                </Button>
+              </div>
             )}
           </form>
         </div>
       </div>
+      
+      <style jsx>{`
+        .contact-bg-elements {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+        
+        .contact-orb {
+          position: absolute;
+          border-radius: 50%;
+          background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+          animation: float 8s ease-in-out infinite;
+        }
+        
+        .contact-orb-1 {
+          width: 200px;
+          height: 200px;
+          top: 10%;
+          left: 10%;
+          animation-delay: 0s;
+        }
+        
+        .contact-orb-2 {
+          width: 150px;
+          height: 150px;
+          top: 60%;
+          right: 15%;
+          animation-delay: 3s;
+        }
+        
+        .contact-orb-3 {
+          width: 100px;
+          height: 100px;
+          bottom: 20%;
+          left: 60%;
+          animation-delay: 6s;
+        }
+      `}</style>
     </section>
   );
 };
