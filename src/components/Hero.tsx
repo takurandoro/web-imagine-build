@@ -56,31 +56,33 @@ const Hero = () => {
             </Button>
           </div>
         </div>
+      </div>
         
-        <div className="absolute bottom-0 left-0 w-full">
-          <div className="relative">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-              <path fill="#ffffff" fillOpacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
-            
-            <div className="absolute bottom-8 w-full overflow-hidden">
-              <div className="animate-marquee whitespace-nowrap">
-                <Facebook size={32} className="text-purple-600 inline-block mx-4" />
-                <Instagram size={32} className="text-purple-600 inline-block mx-4" />
-                <Twitter size={32} className="text-purple-600 inline-block mx-4" />
-                <Linkedin size={32} className="text-purple-600 inline-block mx-4" />
-                <Youtube size={32} className="text-purple-600 inline-block mx-4" />
-                <Facebook size={32} className="text-purple-600 inline-block mx-4" />
-                <Instagram size={32} className="text-purple-600 inline-block mx-4" />
-                <Twitter size={32} className="text-purple-600 inline-block mx-4" />
-                <Linkedin size={32} className="text-purple-600 inline-block mx-4" />
-                <Youtube size={32} className="text-purple-600 inline-block mx-4" />
-                <Facebook size={32} className="text-purple-600 inline-block mx-4" />
-                <Instagram size={32} className="text-purple-600 inline-block mx-4" />
-                <Twitter size={32} className="text-purple-600 inline-block mx-4" />
-                <Linkedin size={32} className="text-purple-600 inline-block mx-4" />
-                <Youtube size={32} className="text-purple-600 inline-block mx-4" />
-              </div>
+      {/* Wave and social media icons - positioned at bottom of section */}
+      <div className="absolute bottom-0 left-0 right-0 w-full">
+        <div className="relative w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full block">
+            <path fill="#ffffff" fillOpacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+          
+          {/* Social media icons marquee */}
+          <div className="absolute bottom-8 left-0 right-0 w-full overflow-hidden">
+            <div className="flex animate-marquee whitespace-nowrap">
+              <Facebook size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Instagram size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Twitter size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Linkedin size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Youtube size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Facebook size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Instagram size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Twitter size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Linkedin size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Youtube size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Facebook size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Instagram size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Twitter size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Linkedin size={32} className="text-purple-600 mx-8 flex-shrink-0" />
+              <Youtube size={32} className="text-purple-600 mx-8 flex-shrink-0" />
             </div>
           </div>
         </div>
