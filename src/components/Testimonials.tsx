@@ -1,4 +1,3 @@
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Check, Quote, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -63,12 +62,12 @@ const Testimonials = () => {
               <div className="flex justify-between items-start mb-6">
                 <div className="flex items-center">
                   <Avatar className="h-16 w-16 border-3 border-purple-300 mr-4 ring-4 ring-purple-100 group-hover:scale-110 transition-transform duration-300">
-                    <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop&q=80" />
-                    <AvatarFallback className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-bold">JM</AvatarFallback>
+                    <AvatarImage src="/grace.jpg" />
+                    <AvatarFallback className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-bold">GN</AvatarFallback>
                   </Avatar>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">James Mwangi</h3>
-                    <p className="text-purple-600 font-medium">Fashion Boutique Owner</p>
+                    <h3 className="text-xl font-bold text-gray-900">Grace Nalule</h3>
+                    <p className="text-purple-600 font-medium">Social Media Manager - One Child Africa</p>
                   </div>
                 </div>
                 
@@ -109,12 +108,12 @@ const Testimonials = () => {
               <div className="flex justify-between items-start mb-6">
                 <div className="flex items-center">
                   <Avatar className="h-16 w-16 border-3 border-purple-300 mr-4 ring-4 ring-purple-100 group-hover:scale-110 transition-transform duration-300">
-                    <AvatarImage src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&auto=format&fit=crop&q=80" />
-                    <AvatarFallback className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-bold">CN</AvatarFallback>
+                    <AvatarImage src="/mercy.jpg" />
+                    <AvatarFallback className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-bold">MV</AvatarFallback>
                   </Avatar>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">Chioma Nduka</h3>
-                    <p className="text-purple-600 font-medium">E-commerce Store Owner</p>
+                    <h3 className="text-xl font-bold text-gray-900">Mercy Vugutsa</h3>
+                    <p className="text-purple-600 font-medium">Owns Hook and Stitch E-commerce store</p>
                   </div>
                 </div>
                 

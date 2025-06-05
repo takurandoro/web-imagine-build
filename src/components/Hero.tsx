@@ -1,7 +1,7 @@
-
 import { Button } from "@/components/ui/button";
-import { CalendarClock, ArrowRight, Facebook, Instagram, Linkedin, Twitter, Youtube, TrendingUp, Users, Zap } from "lucide-react";
+import { CalendarClock, ArrowRight, Facebook, Instagram, Linkedin, Twitter, Youtube, TrendingUp, Zap, Check } from "lucide-react";
 import { useEffect, useState } from "react";
+import Marquee from "react-fast-marquee";
 
 const Hero = () => {
   const [animatedIcons, setAnimatedIcons] = useState(false);
@@ -43,21 +43,16 @@ const Hero = () => {
           {/* Hero Text with Staggered Animation */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white">
-              <span className="block animate-slide-up opacity-0" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
-                Elevate Your
+              <span className="block animate-slide-up" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
+                Get More Clients
               </span>
-              <span className="block animate-slide-up opacity-0 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-300 bg-clip-text text-transparent" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
-                Social Media
-              </span>
-              <span className="block animate-slide-up opacity-0" style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}>
-                Presence
+              <span className="block animate-slide-up bg-gradient-to-r from-[#a21caf] via-[#6366f1] to-[#0ea5e9] bg-clip-text text-transparent" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
+                Through Social Media
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl font-light text-gray-300 max-w-4xl mx-auto leading-relaxed animate-fade-up opacity-0" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>
-              Frenies Studio is a full-service social media management agency founded by 
-              <span className="text-purple-400 font-semibold"> Takura Ndoro (GuruNdoro)</span>, 
-              a marketing graduate with extensive e-commerce experience.
+            <p className="text-lg md:text-xl lg:text-2xl font-light text-gray-300 max-w-4xl mx-auto leading-relaxed animate-fade-up" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>
+              If you want to consistently attract and convert more clients for your business, you're in the right place. At Frenies Studio we use Facebook ads to get you clients, whether you're a startup, established business, or online store. We can guarantee you more sales. We know what it takes to get you results you deserve.
             </p>
           </div>
 
@@ -65,18 +60,18 @@ const Hero = () => {
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12 transition-all duration-1000 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="glass-card p-6 text-center hover:scale-105 transition-all duration-300">
               <TrendingUp className="h-8 w-8 text-purple-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white counter" data-target="150">150%</div>
-              <div className="text-gray-400">Average Growth</div>
+              <div className="text-3xl font-bold text-white">30+</div>
+              <div className="text-gray-400">Clients</div>
             </div>
-            <div className="glass-card p-6 text-center hover:scale-105 transition-all duration-300" style={{animationDelay: '0.2s'}}>
-              <Users className="h-8 w-8 text-purple-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white counter" data-target="50">50+</div>
-              <div className="text-gray-400">Happy Clients</div>
-            </div>
-            <div className="glass-card p-6 text-center hover:scale-105 transition-all duration-300" style={{animationDelay: '0.4s'}}>
+            <div className="glass-card p-6 text-center hover:scale-105 transition-all duration-300">
               <Zap className="h-8 w-8 text-purple-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white counter" data-target="24">24/7</div>
-              <div className="text-gray-400">Support</div>
+              <div className="text-3xl font-bold text-white">24/7</div>
+              <div className="text-gray-400">Online Support</div>
+            </div>
+            <div className="glass-card p-6 text-center hover:scale-105 transition-all duration-300">
+              <Check className="h-8 w-8 text-purple-400 mx-auto mb-3" />
+              <div className="text-3xl font-bold text-white">Guaranteed</div>
+              <div className="text-gray-400">Results for Your Business</div>
             </div>
           </div>
 
@@ -109,34 +104,20 @@ const Hero = () => {
       {/* Enhanced Wave and Social Icons */}
       <div className="absolute bottom-0 left-0 right-0 w-full">
         <div className="relative w-full">
+          {/* Enhanced Social Media Icons Marquee */}
+          <div className="absolute bottom-12 left-0 right-0 w-full">
+            <Marquee gradient={false} speed={40} pauseOnHover={true} className="py-2">
+              {Array.from({ length: 30 }).map((_, i) => {
+                const icons = [Facebook, Instagram, Twitter, Linkedin, Youtube];
+                const Icon = icons[i % icons.length];
+                return <Icon key={i} size={40} className="mx-6 text-purple-600" />;
+              })}
+            </Marquee>
+          </div>
           {/* Animated Wave */}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full block wave-animation">
-            <defs>
-              <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
-                <stop offset="50%" stopColor="#f3e8ff" stopOpacity="1" />
-                <stop offset="100%" stopColor="#ffffff" stopOpacity="0.9" />
-              </linearGradient>
-            </defs>
-            <path fill="url(#waveGradient)" fillOpacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <path fill="#fff" fillOpacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           </svg>
-          
-          {/* Enhanced Social Media Icons Marquee */}
-          <div className="absolute bottom-8 left-0 right-0 w-full overflow-hidden">
-            <div className="social-marquee">
-              <div className="social-icons-track">
-                {[...Array(3)].map((_, setIndex) => (
-                  <div key={setIndex} className="social-icons-set">
-                    <Facebook size={40} className="social-icon text-purple-600" />
-                    <Instagram size={40} className="social-icon text-purple-600" />
-                    <Twitter size={40} className="social-icon text-purple-600" />
-                    <Linkedin size={40} className="social-icon text-purple-600" />
-                    <Youtube size={40} className="social-icon text-purple-600" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

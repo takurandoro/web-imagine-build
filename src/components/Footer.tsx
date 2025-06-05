@@ -1,4 +1,3 @@
-
 import { Facebook, Instagram, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
@@ -9,8 +8,8 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
               <img 
-                src="/logo-white.png" 
-                alt="Frenies Studio Logo" 
+                src="/splashlogo.png" 
+                alt="Frenies Studio Splash Logo" 
                 className="h-8 mr-3" 
                 style={{ objectFit: "contain" }}
               />
@@ -76,7 +75,7 @@ const Footer = () => {
               <Facebook className="w-5 h-5" />
               <span className="sr-only">Facebook page</span>
             </a>
-            <a href="https://www.instagram.com/frenies.zw/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-purple-400 transition-colors">
+            <a href="https://www.instagram.com/freniesstudio/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-purple-400 transition-colors">
               <Instagram className="w-5 h-5" />
               <span className="sr-only">Instagram page</span>
             </a>

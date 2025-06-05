@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -363,44 +362,58 @@ const ContactForm = () => {
         </div>
       </div>
       
-      <style jsx>{`
+      <style>{`
         .contact-bg-elements {
           position: absolute;
-          top: 0;
-          left: 0;
           width: 100%;
           height: 100%;
+          overflow: hidden;
         }
-        
         .contact-orb {
           position: absolute;
           border-radius: 50%;
-          background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
-          animation: float 8s ease-in-out infinite;
+          filter: blur(40px);
+          opacity: 0.5;
+          animation: float 15s infinite ease-in-out;
         }
-        
         .contact-orb-1 {
-          width: 200px;
-          height: 200px;
-          top: 10%;
-          left: 10%;
+          width: 300px;
+          height: 300px;
+          background: linear-gradient(45deg, #8B5CF6, #EC4899);
+          top: -100px;
+          left: -100px;
           animation-delay: 0s;
         }
-        
         .contact-orb-2 {
-          width: 150px;
-          height: 150px;
-          top: 60%;
-          right: 15%;
-          animation-delay: 3s;
+          width: 400px;
+          height: 400px;
+          background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+          bottom: -150px;
+          right: -150px;
+          animation-delay: -5s;
         }
-        
         .contact-orb-3 {
-          width: 100px;
-          height: 100px;
-          bottom: 20%;
-          left: 60%;
-          animation-delay: 6s;
+          width: 200px;
+          height: 200px;
+          background: linear-gradient(45deg, #EC4899, #3B82F6);
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation-delay: -10s;
+        }
+        @keyframes float {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          25% {
+            transform: translate(50px, 50px);
+          }
+          50% {
+            transform: translate(0, 100px);
+          }
+          75% {
+            transform: translate(-50px, 50px);
+          }
         }
       `}</style>
     </section>

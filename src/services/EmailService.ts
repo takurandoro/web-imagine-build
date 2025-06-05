@@ -1,4 +1,3 @@
-
 import emailjs from 'emailjs-com';
 
 interface EmailParams {
@@ -22,20 +21,18 @@ export const sendEmail = async (params: EmailParams) => {
     message: params.message,
     phone_number: params.phoneNumber,
     service_type: params.service,
-    to_email: 'freniestudio@gmail.com'
+    to_email: 'freniesstudio@gmail.com'
   };
 
   try {
-    // Replace "YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", and "YOUR_USER_ID" with your actual IDs
-    // For security, consider using environment variables in a production environment
+    // TODO: Replace the following with your actual EmailJS credentials
+    const SERVICE_ID = "YOUR_SERVICE_ID";
+    const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+    const USER_ID = "YOUR_USER_ID";
+
+    // Uncomment the line below after filling in your credentials
+    await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID);
     
-    // To set up EmailJS properly:
-    // 1. Uncomment the next line
-    // 2. Add your EmailJS credentials
-    // await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams, "YOUR_USER_ID");
-    
-    // For now, we'll just simulate the email sending
-    console.log("Email would be sent to freniestudio@gmail.com with these parameters:", templateParams);
     return { success: true };
   } catch (error) {
     console.error("Error sending email:", error);
