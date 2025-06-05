@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { CalendarClock, ArrowRight, Facebook, Instagram, Linkedin, Twitter, Youtube, TrendingUp, Zap, Check } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -22,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-purple-900 via-indigo-900 to-black pt-20 pb-32 overflow-hidden min-h-screen flex items-center">
+    <section className="relative bg-gradient-to-br from-purple-900 via-purple-800 to-black pt-20 pb-32 overflow-hidden min-h-screen flex items-center">
       {/* Animated Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-animated opacity-90"></div>
@@ -46,7 +47,7 @@ const Hero = () => {
               <span className="block animate-slide-up" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
                 Get More Clients
               </span>
-              <span className="block animate-slide-up bg-gradient-to-r from-[#a21caf] via-[#6366f1] to-[#0ea5e9] bg-clip-text text-transparent" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
+              <span className="block animate-slide-up bg-gradient-to-r from-[#a21caf] via-[#9333ea] to-[#000000] bg-clip-text text-transparent" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>
                 Through Social Media
               </span>
             </h1>
