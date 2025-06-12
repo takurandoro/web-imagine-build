@@ -37,7 +37,7 @@ const Features = () => {
 
       <div className="relative z-10 py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
         <div className="max-w-screen-md mb-12 lg:mb-16">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 relative pb-3 inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1 after:w-20 after:rounded-full after:bg-gradient-to-r after:from-purple-500 after:via-indigo-600 after:to-blue-500">
+          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-purple-600 to-black relative pb-3 inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1 after:w-20 after:rounded-full after:bg-gradient-to-r after:from-purple-500 after:via-purple-600 after:to-black">
             Our Services
           </h2>
           <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
@@ -50,7 +50,7 @@ const Features = () => {
           <div className="flex flex-col lg:flex-row items-center gap-8">
             <div className="flex-1 space-y-6">
               <div className="flex items-center gap-3">
-                <div className="p-3 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 rounded-full">
+                <div className="p-3 bg-gradient-to-r from-purple-500 via-purple-600 to-black rounded-full">
                   <Sparkles className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Book Your Free Strategy Call</h3>
@@ -79,7 +79,7 @@ const Features = () => {
             <div className="flex-none">
               <Button 
                 size="lg" 
-                className="group bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 hover:from-purple-700 hover:to-blue-700 text-white transform transition-all duration-300 hover:scale-110 hover:shadow-2xl px-8 py-4 text-lg"
+                className="group bg-gradient-to-r from-purple-500 via-purple-600 to-black hover:from-purple-700 hover:to-black text-white transform transition-all duration-300 hover:scale-110 hover:shadow-2xl px-8 py-4 text-lg"
                 onClick={() => window.open("https://calendar.app.google/akSVg2rC9YGMkj468", "_blank")}
               >
                 <span className="flex items-center gap-3">
@@ -92,30 +92,36 @@ const Features = () => {
         </div>
 
         {/* Enhanced Service Cards */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
           {/* Novus Card */}
           <div className="service-card group">
-            <Card className="h-full border-none shadow-2xl transition-all duration-300 bg-gradient-to-br from-white via-purple-50 to-blue-50 overflow-hidden relative hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-purple-100 hover:to-blue-100">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500"></div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
+            <Card className="h-full border-none shadow-2xl transition-all duration-300 bg-gradient-to-br from-white via-purple-50 to-purple-100 overflow-hidden relative hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-purple-600 to-black"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
               <CardHeader className="pb-4 relative z-10">
                 <CardTitle className="text-2xl font-bold flex items-center">
-                  <div className="p-3 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 rounded-full mr-4 group-hover:rotate-12 transition-transform duration-300">
+                  <div className="p-3 bg-gradient-to-r from-purple-500 via-purple-600 to-black rounded-full mr-4 group-hover:rotate-12 transition-transform duration-300">
                     <Target className="h-6 w-6 text-white" />
                   </div>
-                  <span className="bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">Novus</span>
+                  <span className="bg-gradient-to-r from-purple-500 via-purple-600 to-black bg-clip-text text-transparent">Novus</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-gray-700 text-base leading-relaxed">
-                  Comments and DM replies, 4 posts a week across all socials, stories everyday, and a content calendar. (Client has to provide their own content or media crew for content creation.)
+              <CardContent className="space-y-6 flex flex-col h-full">
+                <p className="text-gray-700 text-base leading-relaxed max-w-md mx-auto text-center mb-4">
+                  Novus is a full social media management service. We handle every aspect of your social media presence so you can focus on your business. We provide content ideas and strategies, and tell you what to capture, but you are responsible for taking your own content.
                 </p>
-                <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg">
-                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">$150</span>
+                <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-purple-200 rounded-lg max-w-md mx-auto mb-4">
+                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-purple-600 to-black bg-clip-text text-transparent">$250</span>
                   <span className="text-gray-700">/month</span>
                 </div>
-                <div className="space-y-3">
-                  {['Comments and DM Replies', '4 Posts a Week', 'Stories Everyday', 'Content Calendar'].map((feature, index) => (
+                <div className="space-y-3 max-w-md mx-auto text-left">
+                  {[
+                    'Comments and DM Replies',
+                    '4 Posts a Week Across All Socials',
+                    'Stories Every Day',
+                    'Content Calendar',
+                    'Client provides content or media crew for content creation'
+                  ].map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/70 transition-colors">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
@@ -123,7 +129,7 @@ const Features = () => {
                   ))}
                 </div>
                 <Button 
-                  className="w-full bg-white text-blue-700 border border-blue-500 hover:bg-blue-600 hover:text-white hover:border-blue-700 transform transition-all duration-300 hover:scale-105"
+                  className="w-full bg-white text-purple-700 border border-purple-500 hover:bg-purple-600 hover:text-white hover:border-purple-700 transform transition-all duration-300 hover:scale-105 mt-6"
                   onClick={() => location.href='#contact'}
                 >
                   Get Started
@@ -134,45 +140,48 @@ const Features = () => {
 
           {/* Growth Labs Card - Popular */}
           <div className="service-card group scale-105">
-            <Card className="h-full border-none shadow-2xl transition-all duration-300 bg-gradient-to-br from-white via-purple-50 to-blue-50 overflow-hidden relative hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-purple-100 hover:to-blue-100">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500"></div>
+            <Card className="h-full border-none shadow-2xl transition-all duration-300 bg-gradient-to-br from-white via-purple-50 to-purple-100 overflow-hidden relative hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-purple-600 to-black"></div>
               <div className="absolute top-4 right-4 z-20">
-                <div className="bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg animate-pulse">
+                <div className="bg-gradient-to-r from-purple-500 via-purple-600 to-black text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg animate-pulse">
                   POPULAR
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
               
               <CardHeader className="pb-4 relative z-10">
                 <CardTitle className="text-2xl font-bold flex items-center">
-                  <div className="p-3 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 rounded-full mr-4 group-hover:rotate-12 transition-transform duration-300">
+                  <div className="p-3 bg-gradient-to-r from-purple-500 via-purple-600 to-black rounded-full mr-4 group-hover:rotate-12 transition-transform duration-300">
                     <Rocket className="h-6 w-6 text-white" />
                   </div>
-                  <span className="bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">Growth Labs</span>
+                  <span className="bg-gradient-to-r from-purple-500 via-purple-600 to-black bg-clip-text text-transparent">Growth Labs</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-gray-700 text-base leading-relaxed">
-                  Increase traffic and sales with our Growth Labas package.
+              <CardContent className="space-y-6 flex flex-col h-full">
+                <p className="text-gray-700 text-base leading-relaxed max-w-md mx-auto text-center mb-4">
+                  Growth Labs is a performance-based paid advertising service. We run targeted ads to increase your business traffic and sales. You only pay a percentage per lead or client acquired.
                 </p>
-                
-                <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg">
-                  <div className="text-lg font-bold bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                    $150/month
+                <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-purple-200 rounded-lg max-w-md mx-auto mb-4">
+                  <div className="text-lg font-bold bg-gradient-to-r from-purple-500 via-purple-600 to-black bg-clip-text text-transparent">
+                    $150 sign-up + 5% per lead or 10% per client
                   </div>
                 </div>
-                
-                <div className="space-y-3">
-                  {['Traffic Increase', 'Sales Increase'].map((feature, index) => (
+                <div className="space-y-3 max-w-md mx-auto text-left">
+                  {[
+                    'Paid Advertising',
+                    'Lead Generation',
+                    'Business Traffic Increase',
+                    'Sales Increase',
+                    'No Upfront Ad Costs for Ads'
+                  ].map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/70 transition-colors">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
-                
                 <Button 
-                  className="w-full bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 hover:from-purple-700 hover:to-blue-700 text-white transform transition-all duration-300 hover:scale-105"
+                  className="w-full bg-gradient-to-r from-purple-500 via-purple-600 to-black hover:from-purple-700 hover:to-black text-white transform transition-all duration-300 hover:scale-105 mt-6"
                   onClick={() => location.href='#contact'}
                 >
                   Get Started
@@ -181,29 +190,35 @@ const Features = () => {
             </Card>
           </div>
 
-          {/* Koncept Card */}
+          {/* Kontent Card */}
           <div className="service-card group">
-            <Card className="h-full border-none shadow-2xl transition-all duration-300 bg-gradient-to-br from-white via-purple-50 to-blue-50 overflow-hidden relative hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-purple-100 hover:to-blue-100">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500"></div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
+            <Card className="h-full border-none shadow-2xl transition-all duration-300 bg-gradient-to-br from-white via-purple-50 to-purple-100 overflow-hidden relative hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-purple-600 to-black"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
               <CardHeader className="pb-4 relative z-10">
                 <CardTitle className="text-2xl font-bold flex items-center">
-                  <div className="p-3 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 rounded-full mr-4 group-hover:rotate-12 transition-transform duration-300">
+                  <div className="p-3 bg-gradient-to-r from-purple-500 via-purple-600 to-black rounded-full mr-4 group-hover:rotate-12 transition-transform duration-300">
                     <Sparkles className="h-6 w-6 text-white" />
                   </div>
-                  <span className="bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">Kontent</span>
+                  <span className="bg-gradient-to-r from-purple-500 via-purple-600 to-black bg-clip-text text-transparent">Kontent</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-gray-700 text-base leading-relaxed">
-                  Includes 100+ pictures, 8 graphics, 8 reels, a content calendar, and captions. The Novus Package is included as well.
+              <CardContent className="space-y-6 flex flex-col h-full">
+                <p className="text-gray-700 text-base leading-relaxed max-w-md mx-auto text-center mb-4">
+                  Kontent is a full content creation service. We will plan, script, and create all the content you need for your social media: photos, graphics, reels, and more. You will also receive the Novus Package for full social media management, ensuring your content is posted across all platforms.
                 </p>
-                <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg">
-                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">$2000</span>
+                <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-purple-200 rounded-lg max-w-md mx-auto mb-4">
+                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-purple-600 to-black bg-clip-text text-transparent">$2000</span>
                   <span className="text-gray-700">/month</span>
                 </div>
-                <div className="space-y-3">
-                  {['100+ Pictures', '8 Graphics', '8 Reels', 'Content Calendar', 'Captions'].map((feature, index) => (
+                <div className="space-y-3 max-w-md mx-auto text-left">
+                  {[
+                    '100+ Professional Photos',
+                    '8 Custom Graphics',
+                    '8 Reels',
+                    'Content Calendar',
+                    'Captions'
+                  ].map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/70 transition-colors">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
@@ -211,7 +226,7 @@ const Features = () => {
                   ))}
                 </div>
                 <Button 
-                  className="w-full bg-white text-blue-700 border border-blue-500 hover:bg-blue-600 hover:text-white hover:border-blue-700 transform transition-all duration-300 hover:scale-105 mt-6"
+                  className="w-full bg-white text-purple-700 border border-purple-500 hover:bg-purple-600 hover:text-white hover:border-purple-700 transform transition-all duration-300 hover:scale-105 mt-6"
                   onClick={() => location.href='#contact'}
                 >
                   Get Started

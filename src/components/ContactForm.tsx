@@ -89,9 +89,14 @@ const ContactForm = () => {
     } catch (error) {
       console.error("Error sending email:", error);
       toast({
-        title: "Error",
-        description: "Sorry, there was a problem sending your message. Please try again later.",
+        title: "Inbox Full",
+        description: "The inbox is currently full. We advise you to book the call directly on the Frenies calendar.",
         variant: "destructive",
+        action: (
+          <Button variant="secondary" size="sm" onClick={handleBookFreeCall}>
+            Book Directly
+          </Button>
+        ),
       });
     } finally {
       setIsSubmitting(false);
@@ -136,11 +141,11 @@ const ContactForm = () => {
             <span className="font-medium">freniestudio@gmail.com</span>
           </a>
           <a 
-            href="tel:+263" 
+            href="tel:+263772660891" 
             className="group flex items-center gap-3 text-gray-700 hover:text-purple-600 transition-all duration-300 glass-card p-4 px-6 rounded-xl hover:scale-105"
           >
             <Phone className="h-5 w-5 group-hover:animate-bounce" /> 
-            <span className="font-medium">Contact via phone</span>
+            <span className="font-medium">+263772660891</span>
           </a>
           <a 
             href="https://calendar.app.google/akSVg2rC9YGMkj468" 

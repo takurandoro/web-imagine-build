@@ -128,7 +128,7 @@ const Testimonials = () => {
               {/* Testimonial Text */}
               <div className="relative mb-6">
                 <p className="text-gray-700 text-lg leading-relaxed italic">
-                  "The <span className="font-semibold text-purple-600">Growth Labs program</span> has been a game-changer for my business. We signed up with just $100 and within two months, Frenies brought us <span className="font-semibold text-purple-600 animate-pulse">15 new clients</span>. The ROI has been incredible, and I appreciate their performance-based model!"
+                  "The <span className="font-semibold text-purple-600">Growth Labs program</span> has been a game-changer for my business. We signed up with just $150 and within two months, Frenies brought us <span className="font-semibold text-purple-600 animate-pulse">15 new clients</span>. The ROI has been incredible, and I appreciate their performance-based model!"
                 </p>
               </div>
               
