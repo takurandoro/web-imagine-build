@@ -108,14 +108,14 @@ const Features = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-gray-700 text-base leading-relaxed">
-                  Complete social media management service. We manage your Instagram and Facebook, posting your content while ensuring brand consistency. <span className='font-semibold text-red-500'>No UGC, No Ads.</span>
+                  Comments and DM replies, 4 posts a week across all socials, stories everyday, and a content calendar. (Client has to provide their own content or media crew for content creation.)
                 </p>
                 <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg">
-                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">$250</span>
+                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">$150</span>
                   <span className="text-gray-700">/month</span>
                 </div>
                 <div className="space-y-3">
-                  {['Instagram Management', 'Facebook Management', 'Brand Consistency'].map((feature, index) => (
+                  {['Comments and DM Replies', '4 Posts a Week', 'Stories Everyday', 'Content Calendar'].map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/70 transition-colors">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
@@ -153,17 +153,17 @@ const Features = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-gray-700 text-base leading-relaxed">
-                  Our paid ads service where we run advertisements for your company using our own money until you get clients or leads.
+                  Increase traffic and sales with our Growth Labas package.
                 </p>
                 
                 <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg">
                   <div className="text-lg font-bold bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                    $100 sign-up + 5% per lead / 10% per client
+                    $150/month
                   </div>
                 </div>
                 
                 <div className="space-y-3">
-                  {['Paid Advertisement', 'Lead Generation', 'No Upfront Ad Costs'].map((feature, index) => (
+                  {['Traffic Increase', 'Sales Increase'].map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/70 transition-colors">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
@@ -196,14 +196,14 @@ const Features = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-gray-700 text-base leading-relaxed">
-                  Content creation service where we create engaging content for your brand including stills, reels, stories, and user-generated content (UGC).
+                  Includes 100+ pictures, 8 graphics, 8 reels, a content calendar, and captions. The Novus Package is included as well.
                 </p>
                 <div className="text-center p-4 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg">
-                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">$200</span>
+                  <span className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent">$2000</span>
                   <span className="text-gray-700">/month</span>
                 </div>
                 <div className="space-y-3">
-                  {['Content Creation', 'Stills & Reels', 'UGC Production'].map((feature, index) => (
+                  {['100+ Pictures', '8 Graphics', '8 Reels', 'Content Calendar', 'Captions'].map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/70 transition-colors">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
